@@ -1,0 +1,21 @@
+<form #newtask="ngForm" (ngSubmit)="submitform(newtask.value)">
+  <label>Title</label>
+  <input ngModel type="text" name="title" />
+  <br />
+  <label>Description</label>
+  <input ngModel type="text" name="description" />
+
+  <select name="status" ngModel>
+    <option [value]="true">true</option>
+    <option [value]="false">false</option>
+  </select>
+
+  <button>send data</button>
+</form>
+
+<p>http-client works!</p>
+<div *ngFor="let task of dataarray">
+  <p>{{ task.title }}</p>
+  <button (click)="onedit(task)">edit</button>
+  <button (click)="deletepost((task._id))">delete</button>
+</div>

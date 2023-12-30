@@ -1,0 +1,29 @@
+<!-- 
+    ngFor 
+        -this is used for looping means excurting same thing again and again
+        -
+  ngFor
+    -first
+    -last
+    -index
+    -even
+    -odd
+ -->
+<span *ngFor="let items of array; index as i; even as e; odd as o">
+  <div>
+    {{ i }}&nbsp;    {{ items.name }} &nbsp; <span *ngIf="e">even </span>&nbsp;
+    <span *ngIf="o">odd </span>&nbsp;
+  </div>
+</span>
+<br />
+<!-- <span *ngFor="let items of array">
+    {{items.name}}
+ </span>
+ <br>
+ <span *ngFor="let items of array; even as e">
+    <span *ngIf="e">even is {{items.name}}</span>]
+ </span>
+ <br>
+ <span *ngFor="let items of array; odd as o ">
+    <span *ngIf="o">odd is {{items.name}}</span>&nbsp;&nbsp;&nbsp;
+</span> -->

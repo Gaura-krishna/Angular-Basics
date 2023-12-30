@@ -1,0 +1,183 @@
+<!-- 
+1. Each component as 
+    users.component.html -> view/HTML/UI
+    users.component.scss -> classNames 
+    users.component.ts -> what data to be displayed/expressions 
+    users.component.spec.ts 
+    
+2. Data is spread throughout these files 
+
+3. Data Binding intercating with data of the component 
+
+4. Data can be from component to template -> one way
+
+5. Data can be from template to component -> one way 
+
+6. Two way  to/from component 
+            from/to   template
+
+7. One way/Two way is nothing but representation of data flow 
+    -> one way
+
+    -> two-way 
+    <-
+
+
+8. One Way Binding 
+    8.1 Component to View(ts to html file)
+        -Interpolation
+        -Property Binding
+        -Style Binding
+        -Attribute Binding
+    8.2 View to Component
+    8.3 Event Binding
+
+9. Two Way Binding
+
+ -->
+
+<!--One Way Binding   -->
+
+<!-- Component to View(ts to html file) -->
+<div>
+  <!-- Interpolation starts -->
+  <div>
+    <!--
+         Interpolation nothing but access the variable from component/ts file to view/html file
+         syntax:- {{variable_name}}
+         1. Common mistakes
+             - qoutes/single/doubles around the variables  
+         2 same name should be given - whatever is given in component 
+      -->
+
+    <p>{{ interpolationVariable }}</p>
+  </div>
+  <br />
+
+  <!-- Interpolation ends -->
+
+  <!-- Property Binding starts-->
+  <div>
+    <!--
+            1. We write the property in square brackets [propterty_name]="..."
+
+            2. Its a one-data binding 
+
+            3. We can bind any/multiple propeties to an DOM element 
+
+            4. e.g.,innerHTMl,src,alt,title 
+
+            5. Real Time use cases 
+                5.1. Dynamic table columns 
+                      -> colCount 
+
+                3. Ofcourse binding of style propeties 
+             2 same name should be given - whatever is given in component 
+          -->
+
+    <p [innerHtml]="PropertyBinding"></p>
+    <p [style.color]="'red'">this is a "PropertyBinding"</p>
+  </div>
+  <br />
+
+  <!-- Property Binding end-->
+
+  <!-- Attribute Binding starts-->
+  <div>
+    <!--
+      1. Attribute binbing is a unidirectional - one-way data binding 
+
+      2. Syntax -> [attr.attribute_name]="expression"
+
+      3. The functionality may seem almost similar to property binding 
+
+      4. one of the most important Q asked in interviews is 
+
+        -> what is the difference between property binding and attr binding
+
+        [ngClass]="expression" // property binding
+
+        [attr.className]="c1" // attribute binding 
+
+        -> some attributes are not natively supported for elements 
+
+        -> [colspan]="colVal" // error 
+        -> [attr.colspan]="colVal" 
+
+      -> Angular encourages to use property binding 
+        -> attrbute binding        
+     -->
+
+    <table>
+      <thead>
+        <tr>
+          <td>Contact id</td>
+          <td>Contact name</td>
+          <td>Contact eamil</td>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td [attr.colspan]="colval">Contact id</td>
+          <td>Contact name</td>
+          <td>Contact eamil</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <br />
+
+  <!-- Attribute Binding end-->
+
+  <!-- Event Binding starts-->
+  <div>
+    <!--
+    1. Event binding is one way data binding 
+
+    2. From view/template to Component
+
+    3. We can call any event 
+     -> event is nothing but JavaScript events like 
+          -> onclick
+          -> onmouseover 
+          -> onfocus
+          -> onblur 
+
+    4. Syntax is 
+
+    <button (click)="method()"></button>
+
+  5. we can apply events to any element 
+
+  6. If you are coming from programming 
+    -> functions 
+
+    f1(){
+
+      }
+
+  7. Practice - calling events on various elements 
+    -> different events than I have used 
+
+    -> try creating few methods 
+        -> single parameter 
+        -> multiple parameter 
+
+     -->
+
+     <div>
+      <input #inputdata type="text" placeholder="Enter Your Text" (change)="data(inputdata.value)"/>
+     </div>
+    <!-- Event Binding end-->
+  </div>
+</div>
+
+<!-- --------------------------------------------------------------------------------------------------------------------------------------------------------------------- -->
+
+<!-- Two Way DataBinding -->
+<div>
+  <input [(ngModel)]="username" type="number"/>
+  <p>{{username}}</p>
+</div>
+

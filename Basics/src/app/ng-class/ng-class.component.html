@@ -1,0 +1,86 @@
+<!-- 
+    
+1. ngClass is a directive used for setting the class name of DOM elements 
+
+2. we can provide more than 1 class names using ngClass 
+    -> we can re-use the code for multiple DOM elements 
+
+3. We can pass strings
+
+4. we can pass array values
+
+5. we can pass objects 
+
+6. Common mistakes 
+    - Not writing in correct qoutes 
+    - not putting ngClass in square brackets 
+    - using quotes for variables
+
+ -->
+
+<!-- basic use case of ngClass -->
+<div [ngClass]="'heading'">
+  Heading
+  <br />this is the basic use case of ngClass for setting the class
+</div>
+<br /><br />
+
+<!-- ngClass Multiple classes -->
+<div [ngClass]="'heading headingcolor'">
+  Heading
+  <br />this is use case of ngClass for setting Multiple classes
+</div>
+<br /><br />
+
+<!-- ngClass using dynamic variable example  -->
+<div [ngClass]="styleClassProps">
+  Heading
+  <br />this is use case of ngClass using dynamic variable example<br />
+  <p [ngClass]="'note'">
+    note:- while use the variable we dont need '' single qoutes, beacuase single
+    qoutes are consider as string instead of variables in angular
+  </p>
+</div>
+<br /><br />
+
+<!-- ngClass using conditional check example  -->
+<div
+  [ngClass]="
+    conditionstyle == 'conditional-props'
+      ? 'conditional-props'
+      : 'variable-props'
+  "
+>
+  Heading
+  <br />this is use case of ngClass using conditional check example<br />
+  <p [ngClass]="'note'">
+    note:- while use the conditional check we have check whether we are checking
+    on variable or classnames if we checking it on classname we need mention ' '
+    single qoutes to class names.
+  </p>
+</div>
+<br /><br />
+
+<!-- ngClass using object example  -->
+<div [ngClass]="{ obj1: false, obj2: true }">
+  Heading
+  <br />this is use case of ngClass using object example <br />
+  <p [ngClass]="'note'">
+    note:- while use the object we are/can check classname is true or not(false)
+    if its false then classname Or styling given to that classname will not
+    apply
+  </p>
+</div>
+<br /><br />
+
+
+
+<!-- ngClass using method example  -->
+<!-- <div [ngClass]="{stylemethod}">
+  Heading
+  <br />this is use case of ngClass using method example <br />
+  <p [ngClass]="'note'">
+    note:- while use the method, we have to return a string which has style in style.css file
+  </p>
+</div>
+<br /><br /> -->
